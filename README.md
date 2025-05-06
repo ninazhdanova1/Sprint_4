@@ -1,21 +1,25 @@
 Реализованные тесты
 
-test_add_new_book_add_two_books — проверяет добавление двух уникальных книг.
+test_add_new_book_add_two_books — проверка, что можно добавить две книги.
 
-test_add_new_book_invalid_names_not_added — проверяет, что книги с некорректными названиями (пустыми или слишком длинными) не добавляются.
+test_add_new_book_invalid_name_length — параметризованный тест: книга не добавляется, если название пустое или слишком длинное.
 
-test_add_new_book_duplicate — убеждается, что одна и та же книга не добавляется дважды.
+test_add_new_book_duplicate_not_added — дублирующаяся книга не добавляется.
 
-test_set_book_genre_valid — проверяет корректную установку жанра добавленной книге.
+test_set_book_genre_successfully — установка жанра для одной книги.
 
-test_added_book_has_no_genre — убеждается, что жанр книги по умолчанию не установлен.
+test_set_book_genre_with_multiple_books — установка жанра для нескольких книг.
 
-test_get_books_with_specific_genre — проверяет, что метод возвращает книги с определённым жанром.
+test_get_books_with_specific_genre_returns_correct_books — получение книг по определённому жанру.
 
-test_get_books_for_children_excludes_age_restricted — удостоверяется, что книги с возрастным ограничением не попадают в список детских.
+test_get_books_for_children_excludes_age_restricted_genres — проверка, что книги с возрастными жанрами не попадают в список детских книг.
 
-test_add_book_in_favorites — проверяет добавление книги в список избранного.
+test_add_book_in_favorites_once — книга не дублируется в избранном при повторном добавлении.
 
-test_add_book_in_favorites_twice — проверяет, что нельзя дважды добавить одну и ту же книгу в избранное.
+test_get_list_of_favorites_books_returns_correct_list — возвращается корректный список избранных книг.
 
-test_delete_book_from_favorites — проверяет корректное удаление книги из избранного списка.
+test_delete_book_from_favorites_removes_book — удаление книги из избранного.
+
+test_get_book_genre_returns_empty_if_not_set — если жанр не задан, возвращается пустая строка.
+
+test_get_books_genre_returns_correct_dictionary — словарь жанров книг формируется правильно.
