@@ -54,10 +54,12 @@ def test_add_book_in_favorites_once(collector):
     assert collector.get_list_of_favorites_books() == ['Гарри Поттер']
 
 def test_get_list_of_favorites_books_returns_correct_list(collector):
-    collector.add_new_book('Гарри Поттер')
     collector.add_new_book('1984')
-    collector.add_book_in_favorites('Гарри Поттер')
-    assert collector.get_list_of_favorites_books() == ['Гарри Поттер']
+    collector.add_new_book('Матрица')
+    collector.add_book_in_favorites('1984')
+    collector.add_book_in_favorites('Матрица')
+    assert collector.get_list_of_favorites_books() == ['1984', 'Матрица']
+    assert collector.favorites == ['1984', 'Матрица']
 
 def test_delete_book_from_favorites_removes_book(collector):
     collector.add_new_book('1984')
@@ -68,6 +70,7 @@ def test_delete_book_from_favorites_removes_book(collector):
 def test_get_book_genre_returns_empty_if_not_set(collector):
     collector.add_new_book('Книга без жанра')
     assert collector.get_book_genre('Книга без жанра') == ''
+    assert collector.books_genre['Книга без жанра'] == ''
 
 def test_get_books_genre_returns_correct_dictionary(collector):
     collector.add_new_book('Матрица')
